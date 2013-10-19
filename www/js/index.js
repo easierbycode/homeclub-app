@@ -34,7 +34,7 @@ var app = {
     },
     
     apnRegistrationFailed: function(error) {
-        alert('error!');
+        alert('error: ' + error);
     },
     
     onNotificationAPN: function(event) {
