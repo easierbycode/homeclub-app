@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+window.pushNotification = undefined;
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -28,38 +31,55 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    
-    apnRegistrationSuccessful: function(token) {
-        alert('success!');
+
+    tokenHandler: function(token) {
+      // Your iOS push server needs to know the token before it can push to this device
+      // here is where you might token to send it the token for later use.
+      alert('device token = ' + result);
     },
-    
-    apnRegistrationFailed: function(error) {
-        alert('error: ' + error);
+
+    errorHandler: function(error) {
+      alert('error = ' + error);
     },
-    
+
+    successHandler: function(result) {
+      alert('result = ' + result);
+    },
+
     onNotificationAPN: function(event) {
-        alert('foo monkey!');
+      if(event.alert) {
+        navigator.notification.alert(event.alert);
+      }
+
+      if(event.sound) {
+        var snd = new Media(event.sound);
+        snd.play();
+      }
+
+      if(event.badge) {
+        pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, event.badge);
+      }
     },
-    
+
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        
-        var pushNotification = window.plugins.pushNotification;
-        
+
+        pushNotification = window.plugins.pushNotification;
+
         pushNotification.register(
-          app.apnRegistrationSuccessful,
-          app.apnRegistrationFailed,
+          app.tokenHandler,
+          app.errorHandler,
           {
-            alert : true,
-            badge : true,
-            sound : true,
-            ecb   : 'app.onNotificationAPN'
+            "badge":"true",
+            "sound":"true",
+            "alert":"true",
+            "ecb":"app.onNotificationAPN"
           }
-        );
+        )
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
