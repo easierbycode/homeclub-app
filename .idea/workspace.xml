@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ba6399-60ad-4c39-be27-9e62632b75b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.cordova/config.json" afterPath="$PROJECT_DIR$/.cordova/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/config.xml" afterPath="$PROJECT_DIR$/www/config.xml" />
     </list>
     <ignored path="homeclub-app.iws" />
@@ -49,7 +48,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="25" selection-start="64" selection-end="64" vertical-scroll-proportion="0.017523365" vertical-offset="0" max-vertical-offset="870">
+            <state line="1" column="41" selection-start="80" selection-end="80" vertical-scroll-proportion="0.017523365" vertical-offset="0" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
@@ -237,7 +236,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="64" selection-end="64" vertical-scroll-proportion="0.017523365" vertical-offset="0" max-vertical-offset="870">
+        <state line="1" column="41" selection-start="80" selection-end="80" vertical-scroll-proportion="0.017523365" vertical-offset="0" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
